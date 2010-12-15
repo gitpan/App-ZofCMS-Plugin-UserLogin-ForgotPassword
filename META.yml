@@ -1,0 +1,21 @@
+---
+abstract: 'addon plugin that adds functionality to let users reset passwords'
+author:
+  - 'Zoffix Znet <cpan@zoffix.com>'
+build_requires:
+  Test::More: 0
+configure_requires:
+  Module::Build: 0.36
+generated_by: 'Module::Build version 0.3607'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: App-ZofCMS-Plugin-UserLogin-ForgotPassword
+provides:
+  App::ZofCMS::Plugin::UserLogin::ForgotPassword:
+    file: lib/App/ZofCMS/Plugin/UserLogin/ForgotPassword.pm
+    version: 0.0101
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.0101
