@@ -15,7 +15,7 @@ name: App-ZofCMS-Plugin-UserLogin-ForgotPassword
 provides:
   App::ZofCMS::Plugin::UserLogin::ForgotPassword:
     file: lib/App/ZofCMS/Plugin/UserLogin/ForgotPassword.pm
-    version: 0.0102
+    version: 0.0110
 requires:
   App::ZofCMS::Plugin::Base: 0.0105
   DBI: 1.607
@@ -24,4 +24,4 @@ requires:
   MIME::Lite: 3.027
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.0102
+version: 0.0110

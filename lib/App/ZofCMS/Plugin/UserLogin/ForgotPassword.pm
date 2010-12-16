@@ -3,7 +3,7 @@ package App::ZofCMS::Plugin::UserLogin::ForgotPassword;
 use warnings;
 use strict;
 
-our $VERSION = '0.0102';
+our $VERSION = '0.0110';
 use base 'App::ZofCMS::Plugin::Base';
 use DBI;
 use Digest::MD5 qw/md5_hex/;
@@ -27,6 +27,10 @@ sub _defaults {
     use_stage_indicators => 1,
     subject     => 'Password Reset',
     login_page  => '/',
+    button_send_link => q|<input type="submit" class="input_submit"|
+        . q| value="Send password">|,
+    button_change_pass => q|<input type="submit" class="input_submit"|
+        . q| value="Change password">|,
 
 #     email_link  => undef, # this will be guessed
 #     from        => undef,
@@ -171,6 +175,7 @@ sub make_change_pass_form {
     );
 
     $template->param(
+        submit_button => $conf->{button_change_pass},
         page       => $q->{page},
         error      => $error,
         code_name  => $conf->{q_code},
@@ -190,6 +195,7 @@ sub process_initial {
     );
 
     $template->param(
+        submit_button => $self->{CONF}{button_send_link},
         page => $self->{Q}{page},
         $show_form_error ? ( error => $show_form_error ) : (),
     );
@@ -430,9 +436,7 @@ sub change_pass_form_template {
         </li>
     </ul>
 
-    <input type="submit"
-        class="input_submit"
-        value="Change password">
+    <tmpl_var name="submit_button">
 </div>
 </form>
 END_HTML
@@ -472,9 +476,7 @@ sub ask_login_form_template {
         name="pulfp_login"
         id="pulfp_login">
 
-    <input type="submit"
-        class="input_submit"
-        value="Send password">
+    <tmpl_var name="submit_button">
 </div>
 </form>
 END_FORM
@@ -521,6 +523,10 @@ In your Main Config File or ZofCMS Template:
         login_page           => '/',
         mime_lite_params     => undef,
         email                => undef, # use `email` column in users table
+        button_send_link => q|<input type="submit" class="input_submit"|
+            . q| value="Send password">|,
+        button_change_pass => q|<input type="submit" class="input_submit"|
+            . q| value="Change password">|,
         use_stage_indicators => 1,
         no_run               => undef,
     },
@@ -595,6 +601,10 @@ to execute.
         login_page           => '/',
         mime_lite_params     => undef,
         email                => undef, # use `email` column in users table
+        button_send_link => q|<input type="submit" class="input_submit"|
+            . q| value="Send password">|,
+        button_change_pass => q|<input type="submit" class="input_submit"|
+            . q| value="Change password">|,
         use_stage_indicators => 1,
         no_run               => undef,
     },
@@ -938,6 +948,35 @@ If you don't want that, set the email address directly here. Note: if you
 want to have multiple email addresses, simply separate them with commas.
 B<Defaults to:> C<undef> (take emails from C<users_table> table)
 
+=head3 C<button_send_link>
+
+    plug_user_login_forgot_password => {
+        button_send_link => q|<input type="submit" class="input_submit"|
+            . q| value="Send password">|,
+    ...
+
+B<Optional>. Takes HTML code as a value. This code represents the
+submit button in the first form (the one that asks the user to enter
+their login). This, for example, allows you to use image buttons instead
+of regular ones. Also, feel free to use this as the insertion point
+for any extra HTML form you need in this form. B<Defaults to:>
+C<< <input type="submit" class="input_submit" value="Send password"> >>
+
+=head3 C<button_change_pass>
+
+    plug_user_login_forgot_password => {
+        button_change_pass => q|<input type="submit" class="input_submit"|
+            . q| value="Change password">|,
+    ...
+
+B<Optional>. Takes HTML code as a value. This code represents the
+submit button in the second form (the one that asks the user to enter
+and reconfirm their new password). This, for example, allows you to use
+image buttons instead of regular ones. Also, feel free to use this as the
+insertion point for any extra HTML form you need in this form.
+B<Defaults to:>
+C<< <input type="submit" class="input_submit" value="Change password"> >>
+
 =head3 C<no_run>
 
     plug_user_login_forgot_password => {
@@ -1122,7 +1161,8 @@ link the user needs to follow.
     </form>
 
 This is the form that asks the user for their login in order to reset
-the password.
+the password. Submit button is plugin's default code, you can control
+it with the C<button_send_link> plugin's argument.
 
 =head2 "New Password" Form Template
 
@@ -1164,7 +1204,9 @@ the password.
     </form>
 
 This is the template for the form that asks the user for their new
-password, as well as the retype of it for confirmation purposes.
+password, as well as the retype of it for confirmation purposes. The code
+for the submit button is what the plugin uses by default
+(see C<button_change_pass> plugin's argument).
 
 =head2 "Email Sent" Message
 
