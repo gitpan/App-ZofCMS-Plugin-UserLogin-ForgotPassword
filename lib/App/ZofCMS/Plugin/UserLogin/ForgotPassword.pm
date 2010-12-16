@@ -3,7 +3,7 @@ package App::ZofCMS::Plugin::UserLogin::ForgotPassword;
 use warnings;
 use strict;
 
-our $VERSION = '0.0101';
+our $VERSION = '0.0102';
 use base 'App::ZofCMS::Plugin::Base';
 use DBI;
 use Digest::MD5 qw/md5_hex/;
@@ -1190,6 +1190,16 @@ invalid (expired) reset code.
 This will be shown when the plugin has done its business and the password
 has been reset. Note that the "log in" text will only be a link if
 C<login_page> plugin's argument is set; otherwise it will be plain text.
+
+=head1 REQUIRED MODUILES
+
+The plugin requires the following modules/versions for healthy operation:
+
+    App::ZofCMS::Plugin::Base  => 0.0105
+    DBI                        => 1.607
+    Digest::MD5                => 2.36_01
+    HTML::Template             => 2.9
+    MIME::Lite                 => 3.027
 
 =head1 AUTHOR
 

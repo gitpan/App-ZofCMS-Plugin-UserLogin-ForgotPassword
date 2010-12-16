@@ -14,6 +14,11 @@ my $builder = Module::Build->new(
         'App::ZofCMS::Test::Plugin' => '0.0104',
     },
     requires => {
+        'App::ZofCMS::Plugin::Base' => 0.0105,
+        'DBI'                       => 1.607,
+        'Digest::MD5'               => 2.36_01,
+        'HTML::Template'            => 2.9,
+        'MIME::Lite'                => 3.027,
     },
     add_to_cleanup      => [ 'App-ZofCMS-Plugin-UserLogin-ForgotPassword-*' ],
     create_makefile_pl => 'traditional',

@@ -1,5 +1,8 @@
 Revision history for App-ZofCMS-Plugin-UserLogin-ForgotPassword
 
+0.0102  December 16, 2010
+        Fixed: forgot to add required modules into the Build.PL script
+
 0.0101  December 14, 2010
         First version, released on an unsuspecting world.
 

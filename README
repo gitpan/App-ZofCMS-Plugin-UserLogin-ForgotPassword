@@ -1,7 +1,16 @@
 App-ZofCMS-Plugin-UserLogin-ForgotPassword
 
+The module is a plugin for L<App::ZofCMS> that adds functionality to
+L<App::ZofCMS::Plugin::UserLogin> plugin; that being the "forgot password?"
+operations. Namely, this involves showing the user the form to ask for
+their login, emailing the user special link which to follow (this is to
+establish ligitimate reset) and, finally, to provide a form where a user
+can enter their new password (and of course, the plugin will update
+the password in the C<users> table). Wow, a mouthful of functionality! :)
 
-
+This documentation assumes you've read L<App::ZofCMS>, L<App::ZofCMS::Config> 
+and L<App::ZofCMS::Template>. Whilst not necessary,
+being familiar with L<App::ZofCMS::Plugin::UserLogin> might be helpful.
 
 INSTALLATION
 
