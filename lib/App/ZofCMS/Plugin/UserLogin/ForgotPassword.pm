@@ -3,7 +3,7 @@ package App::ZofCMS::Plugin::UserLogin::ForgotPassword;
 use warnings;
 use strict;
 
-our $VERSION = '0.0110';
+our $VERSION = '0.0111';
 use base 'App::ZofCMS::Plugin::Base';
 use DBI;
 use Digest::MD5 qw/md5_hex/;
@@ -48,8 +48,7 @@ sub _do {
     return
         if $conf->{no_run};
 
-    $q->{page} = ( $q->{dir} || '' ) . ( $q->{page} || '' );
-
+    $self->{Q_PAGE} = ( $q->{dir} || '' ) . ( $q->{page} || '' );
     $self->{CONF} = $conf;
     $self->{Q}    = $q;
     $self->{T}    = $t;
@@ -176,7 +175,7 @@ sub make_change_pass_form {
 
     $template->param(
         submit_button => $conf->{button_change_pass},
-        page       => $q->{page},
+        page       => $conf->{Q_PAGE},
         error      => $error,
         code_name  => $conf->{q_code},
         code_value => $q->{ $conf->{q_code} },

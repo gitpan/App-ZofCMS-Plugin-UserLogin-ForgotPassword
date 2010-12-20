@@ -1,0 +1,35 @@
+{
+    plugins => [ qw/UserLogin::ForgotPassword/ ],
+
+    plug_user_login_forgot_password => {
+        # mandatory
+        dsn                  => "DBI:mysql:database=test;host=localhost",
+
+        # everything below is optional...
+        # ...arguments' default values are shown
+        user                 => '',
+        pass                 => undef,
+        opt                  => { RaiseError => 1, AutoCommit => 1 },
+        users_table          => 'users',
+        code_table           => 'users_forgot_password',
+        q_code               => 'pulfp_code',
+        max_abuse            => '5:10:60', # 5 min. intervals, max 10 attempts per 60 min.
+        min_pass             => 6,
+        code_expiry          => 24*60*60, # 1 day
+        code_length          => 6,
+        subject              => 'Password Reset',
+        email_link           => undef, # this will be guessed
+        from                 => undef,
+        email_template       => undef, # use plugin's default template
+        create_table         => undef,
+        login_page           => '/',
+        mime_lite_params     => undef,
+        email                => undef, # use `email` column in users table
+        button_send_link => q|<input type="submit" class="input_submit"|
+            . q| value="Send password">|,
+        button_change_pass => q|<input type="submit" class="input_submit"|
+            . q| value="Change password">|,
+        use_stage_indicators => 1,
+        no_run               => undef,
+    },
+};

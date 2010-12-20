@@ -16,7 +16,7 @@ my $builder = Module::Build->new(
     requires => {
         'App::ZofCMS::Plugin::Base' => 0.0105,
         'DBI'                       => 1.607,
-        'Digest::MD5'               => 2.36_01,
+        'Digest::MD5'               => '2.36_01',
         'HTML::Template'            => 2.9,
         'MIME::Lite'                => 3.027,
     },
