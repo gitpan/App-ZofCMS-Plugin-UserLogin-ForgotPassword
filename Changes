@@ -1,5 +1,8 @@
 Revision history for App-ZofCMS-Plugin-UserLogin-ForgotPassword
 
+0.0112  December 23, 2010
+        Fixed a bug in `min_pass`
+
 0.0111  December 20, 2010
         Fixed a bug that was changing query parameters globally.
         Added code to previously empty index.tmpl file.

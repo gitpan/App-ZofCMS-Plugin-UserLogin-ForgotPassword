@@ -3,7 +3,7 @@ package App::ZofCMS::Plugin::UserLogin::ForgotPassword;
 use warnings;
 use strict;
 
-our $VERSION = '0.0111';
+our $VERSION = '0.0112';
 use base 'App::ZofCMS::Plugin::Base';
 use DBI;
 use Digest::MD5 qw/md5_hex/;
@@ -143,7 +143,7 @@ sub check_change_pass {
     my $conf = $self->{CONF};
 
     my ( $pass, $repass ) = @$q{ qw/pulfp_pass   pulfp_repass/ };
-    unless ( has_value( $pass ) and length $pass > $conf->{min_pass} ) {
+    unless ( has_value( $pass ) and length $pass >= $conf->{min_pass} ) {
         $self->set_stage('code_bad_pass_length');
         $self->{OUTPUT} = $self->make_change_pass_form(
             'Your new password must be at least '
