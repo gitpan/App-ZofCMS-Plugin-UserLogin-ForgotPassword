@@ -3,7 +3,7 @@ package App::ZofCMS::Plugin::UserLogin::ForgotPassword;
 use warnings;
 use strict;
 
-our $VERSION = '0.0112';
+our $VERSION = '0.0114';
 use base 'App::ZofCMS::Plugin::Base';
 use DBI;
 use Digest::MD5 qw/md5_hex/;
@@ -175,7 +175,7 @@ sub make_change_pass_form {
 
     $template->param(
         submit_button => $conf->{button_change_pass},
-        page       => $conf->{Q_PAGE},
+        page       => $self->{Q_PAGE},
         error      => $error,
         code_name  => $conf->{q_code},
         code_value => $q->{ $conf->{q_code} },

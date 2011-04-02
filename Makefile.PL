@@ -2,18 +2,18 @@
 use ExtUtils::MakeMaker;
 WriteMakefile
 (
-          'NAME' => 'App::ZofCMS::Plugin::UserLogin::ForgotPassword',
-          'VERSION_FROM' => 'lib/App/ZofCMS/Plugin/UserLogin/ForgotPassword.pm',
-          'PREREQ_PM' => {
-                           'App::ZofCMS::Plugin::Base' => '0.0105',
-                           'DBI' => '1.607',
-                           'Digest::MD5' => '2.36_01',
-                           'HTML::Template' => '2.9',
-                           'MIME::Lite' => '3.027',
-                           'Test::More' => 0
-                         },
-          'INSTALLDIRS' => 'site',
-          'EXE_FILES' => [],
-          'PL_FILES' => {}
-        )
+  'NAME' => 'App::ZofCMS::Plugin::UserLogin::ForgotPassword',
+  'VERSION_FROM' => 'lib/App/ZofCMS/Plugin/UserLogin/ForgotPassword.pm',
+  'PREREQ_PM' => {
+                   'App::ZofCMS::Plugin::Base' => '0.0105',
+                   'DBI' => '1.607',
+                   'Digest::MD5' => '2.36_01',
+                   'HTML::Template' => '2.9',
+                   'MIME::Lite' => '3.027',
+                   'Test::More' => 0
+                 },
+  'INSTALLDIRS' => 'site',
+  'EXE_FILES' => [],
+  'PL_FILES' => {}
+)
 ;

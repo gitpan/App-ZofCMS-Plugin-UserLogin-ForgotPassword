@@ -1,5 +1,8 @@
 Revision history for App-ZofCMS-Plugin-UserLogin-ForgotPassword
 
+0.0114  December 23, 2010
+        Fixed a bug that disabled the change pass form on any page but the web root
+
 0.0112  December 23, 2010
         Fixed a bug in `min_pass`
 
