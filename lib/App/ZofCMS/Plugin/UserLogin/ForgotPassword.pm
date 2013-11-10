@@ -3,10 +3,10 @@ package App::ZofCMS::Plugin::UserLogin::ForgotPassword;
 use warnings;
 use strict;
 
-our $VERSION = '0.0114';
+our $VERSION = '0.0115';
 use base 'App::ZofCMS::Plugin::Base';
 use DBI;
-use Digest::MD5 qw/md5_hex/;
+use Digest::MD5 (qw/md5_hex/);
 use HTML::Template;
 use MIME::Lite;
 
@@ -483,6 +483,8 @@ END_FORM
 
 1;
 __END__
+
+=encoding utf8
 
 =head1 NAME
 

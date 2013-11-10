@@ -19,7 +19,9 @@ my $builder = Module::Build->new(
         'Digest::MD5'               => '2.36_01',
         'HTML::Template'            => 2.9,
         'MIME::Lite'                => 3.027,
+        'perl' => '5.006',
     },
+    configure_requires => { 'Module::Build' => 0 },
     add_to_cleanup      => [ 'App-ZofCMS-Plugin-UserLogin-ForgotPassword-*' ],
     create_makefile_pl => 'traditional',
 );
