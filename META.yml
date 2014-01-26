@@ -5,25 +5,24 @@ author:
 build_requires:
   Test::More: 0
 configure_requires:
-  Module::Build: 0
-dynamic_config: 1
-generated_by: 'Module::Build version 0.4007, CPAN::Meta::Converter version 2.132830'
+  ExtUtils::MakeMaker: 6.30
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 5.013, CPAN::Meta::Converter version 2.132830'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: App-ZofCMS-Plugin-UserLogin-ForgotPassword
-provides:
-  App::ZofCMS::Plugin::UserLogin::ForgotPassword:
-    file: lib/App/ZofCMS/Plugin/UserLogin/ForgotPassword.pm
-    version: 0.0115
 requires:
-  App::ZofCMS::Plugin::Base: 0.0105
+  App::ZofCMS::Plugin::Base: 0
   DBI: 1.607
   Digest::MD5: 2.36_01
   HTML::Template: 2.9
   MIME::Lite: 3.027
-  perl: 5.006
+  base: 0
+  strict: 0
+  warnings: 0
 resources:
-  license: http://dev.perl.org/licenses/
-version: 0.0115
+  bugtracker: https://github.com/zoffixznet/App-ZofCMS-Plugin-UserLogin-ForgotPassword/issues
+  repository: git://github.com/zoffixznet/App-ZofCMS-Plugin-UserLogin-ForgotPassword.git
+version: 1.001001

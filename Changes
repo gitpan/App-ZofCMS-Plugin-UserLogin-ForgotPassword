@@ -1,5 +1,9 @@
 Revision history for App-ZofCMS-Plugin-UserLogin-ForgotPassword
 
+1.001001 2014-01-25
+        - Converted to dzil
+        - Fixed RT#87798 (was already fixed in the code actually)
+
 0.0115  2013-11-10
         - Minor fixes to comply with specs and Kwalitee game
 

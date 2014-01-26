@@ -3,12 +3,12 @@ package App::ZofCMS::Plugin::UserLogin::ForgotPassword;
 use warnings;
 use strict;
 
-our $VERSION = '0.0115';
+our $VERSION = '1.001001';
 use base 'App::ZofCMS::Plugin::Base';
-use DBI;
-use Digest::MD5 (qw/md5_hex/);
-use HTML::Template;
-use MIME::Lite;
+use DBI 1.607;
+use Digest::MD5 2.36_01 qw/md5_hex/;
+use HTML::Template 2.9;
+use MIME::Lite 3.027;
 
 sub _key { 'plug_user_login_forgot_password' }
 sub _defaults {
